@@ -1,0 +1,18 @@
+#
+# Jekyll config
+#
+
+title: dcitoTV
+
+baseurl: ""
+url: ""
+
+permalink: /:title/
+collections:
+  posts:
+    output: true
+    permalink: /yap/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

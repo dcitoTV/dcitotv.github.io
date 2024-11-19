@@ -1,0 +1,7 @@
+<nav class="site-nav">
+  {% for page in site.data.navbar %}
+  <a class="nav-button" href="{{ page.path | relative_url }}">
+    {{ page.title }}
+  </a>
+  {% endfor %}
+</nav>

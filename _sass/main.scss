@@ -1,0 +1,192 @@
+@charset "utf-8";
+
+$base-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
+$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+$page-background-color: teal !default;
+$content-background-color: white !default;
+
+* {
+  margin-block: 0;
+  padding-block: 0;
+}
+
+html, body, main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+
+  padding-bottom: 1em;
+  overflow: hidden;
+}
+
+main {
+  overflow: scroll;
+}
+
+.site-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: $page-background-color;
+
+  #site-background-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(25, 175, 175);
+    mix-blend-mode: lighten;
+  }
+}
+
+figure {
+  margin-inline: 1em;
+}
+
+.site-nav {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  column-gap: 1em;
+}
+
+.nav-button {
+  display: inline-block;
+  margin: 0;
+  border: 2px solid black;
+
+  background-color: lightgoldenrodyellow;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: $small-font-size;
+}
+
+.content-list {
+  display: grid;
+  row-gap: 1em;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  padding: 0;
+
+  width: 100%;
+}
+
+.content-block {
+  display: grid;
+  position: relative;
+  row-gap: 1em;
+
+  background-color: $content-background-color;
+  margin: 0;
+  padding: 1em;
+  border: 3px solid black;
+}
+
+.content-left-anchor {
+  position: absolute;
+  left: 0;
+}
+
+.content-left-anchor .aside {
+  position: absolute;
+  right: 0;
+
+  display: grid;
+  row-gap: 0.5em;
+  margin-top: 0.5em;
+
+  .tab {
+    display: grid;
+    background-color: $content-background-color;
+    margin: 0;
+    padding-block: 1em;
+    border: 3px solid black;
+
+    .inner {
+      writing-mode: vertical-rl;
+
+      font-size: $small-font-size;
+      text-transform: uppercase;
+      
+      -webkit-transform: rotate(180deg);   
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
+  .tab.post-category-math {
+    background-color: lightblue;
+  }
+  .tab.post-category-physics {
+    background-color: lightsalmon;
+  }
+  .tab.post-category-philosophy {
+    background-color: lightpink;
+  }
+  .tab.post-category-code {
+    background-color: lightgreen;
+  }
+}
+
+.post-header {
+  display: block;
+}
+
+.post-title {
+  position: relative;
+  float: left;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+a.post-link {
+  color: black;
+  text-decoration: none;
+}
+
+.post-meta {
+  position: relative;
+  float: right;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  font-size: $small-font-size;
+  color: darkgray;
+}
+
+.post-divider {
+  padding-block: 0.4em;
+
+  background-color: paleturquoise;
+  font-size: $small-font-size;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.small-text {
+  font-size: $small-font-size;
+}
+
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@import "syntax";
+@import "dither";

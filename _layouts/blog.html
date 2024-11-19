@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="content-list">
+  <div class="content-block">
+    {{ content }}
+  </div>
+  {% assign month = null %}
+  {% for post in site.posts %}
+    {% capture post_month %}
+      {{ post.date | date: "%b %Y" }}
+    {% endcapture %}
+    {% if month != post_month %}
+      <div class="content-block post-divider" style="text-align: right;">
+        {{ post_month }}
+      </div>
+      {% assign month = post_month %}
+    {% endif %}
+    {% include post-block.html post=post %}
+  {% endfor %}
+</div>
